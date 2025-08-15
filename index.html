@@ -609,18 +609,19 @@
 
             <div class="section-content">
                 <h2>SEND US A MESSAGE</h2>
-                <form id="contactForm" class="contact-form">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required placeholder="Enter your name">
+               <form id="contactForm">
+    <label>Your Name</label>
+    <input type="text" name="from_name" placeholder="Enter your name" required>
 
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required placeholder="Enter your email">
+    <label>Your Email</label>
+    <input type="email" name="reply_to" placeholder="Enter your email" required>
 
-    <label for="message">Your Message:</label>
-    <textarea id="message" name="message" required placeholder="Type your message here"></textarea>
+    <label>Your Message</label>
+    <textarea name="message" placeholder="Enter your message" required></textarea>
 
-    <button type="submit">Send Message</button>
+    <button type="submit">Send</button>
 </form>
+
             </div>
         </section>
 
@@ -657,7 +658,7 @@
 
     <!-- Typed.js library -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
         // Typed.js initialization
         var typed = new Typed('#element', {
@@ -710,26 +711,26 @@
                 navMenu.classList.remove('show');
             });
         });
-    (function(){
-        emailjs.init("wUxMkZxqyfpCMB3uh"); // 🔹 
+     (function(){
+        emailjs.init("wUxMkZxqyfpCMB3uh"); // Your Public Key
     })();
-    // Form submission handler
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Stop page reload
-        // Send form data
-        emailjs.sendForm('service_j54pe39', 'template_dtj3z5n', this, 'wUxMkZxqyfpCMB3uh')
 
-            .then(function() {
-                alert('Message sent successfully!');
-                document.getElementById('contactForm').reset();
-            }, function(error) {
-                alert(' Failed to send message. Please try again.');
-                console.log('Error:', error);
-            });
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_j54pe39', 'template_dtj3z5n', this, 'wUxMkZxqyfpCMB3uh')
+        .then(function() {
+            alert("✅ Message sent successfully!");
+            document.getElementById("contactForm").reset();
+        }, function(error) {
+            alert("❌ Failed to send message. Check console for details.");
+            console.error("EmailJS Error:", error);
+        });
     });
     </script>
 </body>
 
 </html>
+
 
 
