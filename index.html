@@ -709,16 +709,15 @@
                 navMenu.classList.remove('show');
             });
         });
-         src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js">
-    // Initialize EmailJS with your Public Key
     (function(){
-        emailjs.init("wUxMkZxqyfpCMB3uh"); // 🔹 Replace with your Public Key
+        emailjs.init("wUxMkZxqyfpCMB3uh"); // 🔹 
     })();
     // Form submission handler
     document.getElementById('contactForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Stop page reload
         // Send form data
-        emailjs.sendForm('', 'template_jbk90p9', this)
+        emailjs.sendForm('service_j54pe39', 'template_dtj3z5n', this, 'wUxMkZxqyfpCMB3uh')
+
             .then(function() {
                 alert('Message sent successfully!');
                 document.getElementById('contactForm').reset();
@@ -728,6 +727,8 @@
             });
     });
     </script>
+     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </body>
 
 </html>
+
